@@ -22,7 +22,7 @@ module ActiveSupport
         elsif arguments.last.respond_to?(:to_hash)
           options = @options.deep_merge(arguments.pop)
         else
-          options = @options
+          options = @options.dup
         end
 
         invoke_method(method, arguments, options, &block)
